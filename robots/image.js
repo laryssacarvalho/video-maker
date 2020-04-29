@@ -3,6 +3,8 @@ const google = require('googleapis').google;
 const customSearch = google.customsearch('v1');
 const imageDowloader = require('image-downloader');
 const googleSearchCredentials = require('../credentials/google-search.json');
+const gm = require('gm').subClass({imageMagick: true});
+
 async function robot() {
     const content = state.load();
     await fetchImagesOfAllSentences(content);
