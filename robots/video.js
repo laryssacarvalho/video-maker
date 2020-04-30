@@ -10,6 +10,7 @@ ffmpeg.setFfmpegPath(ffmpegPath);
 ffmpeg.setFfprobePath(ffprobePath);
 
 async function robot() {
+    console.log('> [video-robot] Starting...');
     const content = state.load();
 
     await convertAllImages(content);
@@ -57,7 +58,7 @@ async function convertImage(sentenceIndex) {
                 if(error) {
                     return reject(error);
                 }
-                console.log(`> Image converted: ${inputFile}`);
+                console.log(`> [video-robot] Image converted: ${outputFile}`);
                 resolve();
             })
     
@@ -72,7 +73,7 @@ async function createYoutubeThumbnail() {
                 if(error) {
                     return reject(error);
                 }
-                console.log('> Creating Youtube Thumbnail');
+                console.log('> [video-robot] Youtube thumbnail created');
                 resolve();
             });
     })
@@ -84,6 +85,7 @@ async function createFFmpegScript(content) {
 
 async function renderVideoWithFFmpegAndNode(content) {
     return new Promise((resolve, reject) => {
+        console.log('> [video-robot] Starting rendering with ffmpeg and videoshow')
         const images = buildImagesArray(content);
         
         const audio = path.join(__dirname, '../templates/1/newsroom.mp3');
@@ -132,6 +134,7 @@ async function renderVideoWithFFmpegAndNode(content) {
                 reject(error);
             })
             .on('end', function(output) {
+                console.log('> [video-robot] Rendering finished');
                 resolve();
             });
     });

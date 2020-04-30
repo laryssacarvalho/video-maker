@@ -31,6 +31,7 @@ File: `google-search.json`
 
 ```
 {
-  "apiKey": "8ZFTh2ijictVXsfux7o65Vwlqru_NZE-oznZh2d6uQagzhJj"
+  "apiKey": "8ZFTh2ijictVXsfux7o65Vwlqru_NZE-oznZh2d6uQagzhJj",
+  "searchEngineId": "016805113818459945909:5j4t3w5fcmq"
 }
 ```
